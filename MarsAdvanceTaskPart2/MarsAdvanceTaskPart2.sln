@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsAdvanceTaskPart2", "MarsAdvanceTaskPart2\MarsAdvanceTaskPart2.csproj", "{AECB9E36-3349-4463-9304-3FA14986D9FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AECB9E36-3349-4463-9304-3FA14986D9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECB9E36-3349-4463-9304-3FA14986D9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECB9E36-3349-4463-9304-3FA14986D9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECB9E36-3349-4463-9304-3FA14986D9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAA8D75C-8476-4F0B-B497-2534EED02681}
+	EndGlobalSection
+EndGlobal
