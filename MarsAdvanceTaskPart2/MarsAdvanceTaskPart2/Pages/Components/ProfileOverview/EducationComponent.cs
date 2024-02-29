@@ -101,7 +101,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
 
         public void ClearExistingEntries()
         {
-           // RenderEducationComponents();
+          
             Wait.WaitToBeClickable(driver, "XPath", "//*[@data-tab='third']", 15);
             
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(9);
@@ -217,14 +217,12 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
             IReadOnlyCollection<IWebElement> rows = driver.FindElements(By.XPath("//th[text()='Country']//ancestor::thead//following-sibling::tbody/tr"));
             foreach (IWebElement row in rows)
             {
-                IWebElement collegeNameElement = row.FindElement(By.XPath("./td[2]"));
-                IWebElement countryElement = row.FindElement(By.XPath("./td[1]"));
+                
                 IWebElement titleElement = row.FindElement(By.XPath("./td[3]"));
                 IWebElement degreeElement = row.FindElement(By.XPath("./td[4]"));
                 IWebElement yearElement = row.FindElement(By.XPath("./td[5]"));
 
-                string collegeNameDelete = collegeNameElement.Text;
-                string countryDelete = countryElement.Text;
+               
                 string titleDelete = titleElement.Text;
                 string degreetodelete = degreeElement.Text;
                 string yearDelete = yearElement.Text;
@@ -233,6 +231,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
                 {
                     RenderDeleteComponent();
                     deleteIcon.Click();
+           
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
                 }
 
@@ -244,19 +243,19 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
            
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
-            string result = " ";
+            string result = "";
 
             IReadOnlyCollection<IWebElement> rows = driver.FindElements(By.XPath("//th[text()='Country']//ancestor::thead//following-sibling::tbody//tr"));
             foreach (IWebElement row in rows)
             {
-                IWebElement countryElement = row.FindElement(By.XPath("./td[1]"));
+                IWebElement yearElement = row.FindElement(By.XPath("./td[5]"));
                 IWebElement titleElement = row.FindElement(By.XPath("./td[3]"));
                 IWebElement degreeElement = row.FindElement(By.XPath("./td[4]"));
-                string deletedCountry = countryElement.Text;
+                string deletedYear = yearElement.Text;
                 string deletedTitle = titleElement.Text;
                 string deletedDegree = degreeElement.Text;
 
-                if ((deletedCountry != education.Country) && (deletedTitle != education.Title) && (deletedDegree != education.Degree))
+                if ((deletedYear != education.Country) && (deletedTitle != education.Title) && (deletedDegree != education.Degree))
                 {
                   
                      result = "Deleted";

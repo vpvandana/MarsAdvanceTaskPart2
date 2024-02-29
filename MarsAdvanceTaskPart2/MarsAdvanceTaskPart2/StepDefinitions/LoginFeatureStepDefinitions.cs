@@ -39,12 +39,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             homePageSteps.ValidateIsLoggedIn();
         }
 
-        [Given(@"The registered Mars user is on Login page and I click on signIn button")]
-        public void GivenTheRegisteredMarsUserIsOnLoginPageAndIClickOnSignInButton()
-        {
-            loginPage.clickSignInButton();
-        }
-
+       
 
         [When(@"I enters valid credentials using json file located at ""([^""]*)""")]
         public void WhenIEntersValidCredentialsUsingJsonFileLocatedAt(string path)
@@ -52,6 +47,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<UserInformationModel> userInformationList = JsonReader.LoadData<UserInformationModel>(path);
             foreach (var user in userInformationList)
             {
+                loginPage.clickSignInButton();
                 LogScreenshot("ValidLogin");
                 loginComponent.doSignin(user);
                 
@@ -74,6 +70,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<UserInformationModel> userInformationList = JsonReader.LoadData<UserInformationModel>(path);
             foreach (var user in userInformationList)
             {
+                loginPage.clickSignInButton();
                 loginComponent.InvalidUsernameValidPassword(user);
                 LogScreenshot("Invalid Username Valid PasswordLogin");
 
@@ -92,6 +89,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<UserInformationModel> userInformationList = JsonReader.LoadData<UserInformationModel>(path);
             foreach (var user in userInformationList)
             {
+                loginPage.clickSignInButton();
                 loginComponent.ValidUsernameIncorrectPassword(user);
                 LogScreenshot("Valid Username Invalid PasswordLogin");
 
@@ -108,6 +106,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<UserInformationModel> userInformationList = JsonReader.LoadData<UserInformationModel>(path);
             foreach (var user in userInformationList)
             {
+                loginPage.clickSignInButton();
                 loginComponent.ForgotPasswordFunctionality(user);
                 LogScreenshot("ForgotPasswordLogin");
 
@@ -124,6 +123,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<UserInformationModel> userInformationList = JsonReader.LoadData<UserInformationModel>(path);
             foreach (var user in userInformationList)
             {
+                loginPage.clickSignInButton();
                 loginComponent.InvalidVerificationEmailIdInForgotPassword(user);
                 LogScreenshot("InvalidVerificationEmailIdInForgotPasswordLogin");
             }
@@ -140,6 +140,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<UserInformationModel> userInformationList = JsonReader.LoadData<UserInformationModel>(path);
             foreach (var user in userInformationList)
             {
+                loginPage.clickSignInButton();
                 loginComponent.LoginEntries(user);
                 LogScreenshot("PasswordCharacterSpecification");
             }

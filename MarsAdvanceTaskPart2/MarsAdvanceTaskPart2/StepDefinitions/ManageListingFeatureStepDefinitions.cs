@@ -29,20 +29,16 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             homePageSteps = new HomePageSteps();
             jsonReader = new JsonReader();
         }
-        [Given(@"I click on manage listing tab in profile page")]
-        public void GivenIClickOnManageListingTabInProfilePage()
-        {
-            homePageSteps.ClickOnManageListingTab();
-        }
+       
 
-
+        
         [When(@"I update '([^']*)' the service I added")]
         public void WhenIUpdateTheServiceIAdded(string path)
         {
             List<ShareSkillAddModel> manageListingList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var item in manageListingList)
             {
-                
+                homePageSteps.ClickOnManageListingTab();
                 manageListingOverviewComponent.ClickUpdateSkillIcon();
                 manageListingComponent.UpdateListedSkill(item);
                 LogScreenshot("UpdateSkills");
@@ -63,6 +59,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> manageListingList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var item in manageListingList)
             {
+                homePageSteps.ClickOnManageListingTab();
                 manageListingComponent.DeleteListedSkill(item);
                 LogScreenshot("DeleteSkills");
             }
@@ -80,6 +77,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> manageListingList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var item in manageListingList)
             {
+                homePageSteps.ClickOnManageListingTab();
                 manageListingComponent.ViewListedSkill(item);
                 LogScreenshot("ViewSkills");
             }
@@ -95,6 +93,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> manageListingList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var item in manageListingList)
             {
+                homePageSteps.ClickOnManageListingTab();
                 manageListingComponent.GetTitleByPagination(item);
                 LogScreenshot("SkillPagination");
             }
@@ -112,6 +111,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> manageListingList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var item in manageListingList)
             {
+                homePageSteps.ClickOnManageListingTab();
                 manageListingComponent.ActivateDeactivateSkills(item);
                 LogScreenshot("ToggleButtonSkills");
             }

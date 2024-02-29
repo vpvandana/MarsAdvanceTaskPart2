@@ -3,13 +3,12 @@
 As a registered Mars user, I should be able to login to the application successfully
 
 
-Scenario: Do Login with valid credentials
-	Given The registered Mars user is on Login page and I click on signIn button
+Scenario: Do Login with valid credential
 	When I enters valid credentials using json file located at "C:\internship notes\MarsAdvanceTaskPart2\MarsAdvanceTaskPart2\MarsAdvanceTaskPart2\MarsAdvanceTaskPart2\TestData\UserInformationTestData.json"
 	Then I should be logged in successfully
 
 
-Scenario: Do succesful login
+Scenario: Do succesfull login
 	Given Login to Mars and user is on profile page of mars
 	Then I should be logged in successfully
 

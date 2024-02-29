@@ -28,12 +28,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             jsonReader = new JsonReader();
         }
 
-        [Given(@"I click on ShareSkill button in the profile page")]
-        public void GivenIClickOnShareSkillButtonInTheProfilePage()
-        {
-            homePageSteps.ClickOnShareSkill();
-            
-        }
+       
 
 
         [When(@"I add service to list from data located at ""([^""]*)""")]
@@ -42,6 +37,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
                 addShareSkillComponent.AddShareSkills(shareSkillAdd);
                 LogScreenshot("AddShareskill");
 
@@ -65,6 +61,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
                 addShareSkillComponent.MandatoryFieldsLeftEmpty(shareSkillAdd);
                 LogScreenshot("MandatoryFieldsLeftEmpty");
             }
@@ -82,6 +79,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
                 addShareSkillComponent.AddSpecialCharacterOnTitleShareSkill(shareSkillAdd);
                 LogScreenshot("AddSpecialCharacterTitle");
               
@@ -100,6 +98,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
                 addShareSkillComponent.FirstCharacterSpaceForTitle(shareSkillAdd);
                 LogScreenshot("FirstCharacterSpaceTitle");
             }
@@ -117,6 +116,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
                 addShareSkillComponent.FirstCharacterSpaceForDescription(shareSkillAdd);
                 LogScreenshot("FirstCharacterSpaceDescription");
             }
@@ -135,6 +135,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
                 addShareSkillComponent.SubCatagoryAndTagsNotSelected(shareSkillAdd);
                 LogScreenshot("TagsNotSelected");
             }
@@ -159,8 +160,9 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ShareSkillAddModel> shareSkillAddList = JsonReader.LoadData<ShareSkillAddModel>(path);
             foreach (var shareSkillAdd in shareSkillAddList)
             {
+                homePageSteps.ClickOnShareSkill();
+
                 addShareSkillComponent.ClickonCancelForAdd(shareSkillAdd);
-                LogScreenshot("ClickOnCancelForAdd");
             }
         }
         [Then(@"Service should not be added to manage listing")]

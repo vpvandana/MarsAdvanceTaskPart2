@@ -34,17 +34,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             
         }
 
-        [Given(@"I navigate to education tab of profile page")]
-        public void GivenINavigateToEducationTabOfProfilePage()
-        {
-            homePageSteps.ClickOnEducationTab();
-        }
-
-        [When(@"I reset the existing entries")]
-        public void WhenIResetTheExistingEntries()
-        {
-            educationComponent.ClearExistingEntries();
-        }
+        
 
 
         [When(@"I add education from file located at ""([^""]*)""")]
@@ -54,7 +44,8 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<EducationModel> educationList = JsonReader.LoadData<EducationModel>(path);
             foreach (var education in educationList)
             {
- 
+                homePageSteps.ClickOnEducationTab();
+                educationComponent.ClearExistingEntries();
                 educationComponent.AddEducation(education);
                 LogScreenshot("AddEducation");
             }
@@ -79,6 +70,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<EducationModel> educationList = JsonReader.LoadData<EducationModel>(path);
             foreach (var education in educationList)
             {
+                homePageSteps.ClickOnEducationTab();
                 educationComponent.UpdateEducation(education);
                 LogScreenshot("UpdateEducation");
             
@@ -102,7 +94,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<EducationModel> educationList = JsonReader.LoadData<EducationModel>(path);
             foreach (var education in educationList)
             {
-
+                homePageSteps.ClickOnEducationTab();
                 educationComponent.DeleteEducation(education);
                 LogScreenshot("DeleteEducation");
             }
@@ -123,6 +115,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<EducationModel> educationList = JsonReader.LoadData<EducationModel>(deletepath);
             foreach (var education in educationList)
             {
+                homePageSteps.ClickOnEducationTab();
                 educationComponent.AddEmptyEducationField(education);
                 LogScreenshot("AddEmptyEducation");
             }
@@ -141,6 +134,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<EducationModel> educationList = JsonReader.LoadData<EducationModel>(path);
             foreach (var education in educationList)
             {
+                homePageSteps.ClickOnEducationTab();
                 educationComponent.AddSameDegreeSameYear(education);
                 LogScreenshot("AddSameDegreeSameYearEducation");
             }
@@ -158,6 +152,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<EducationModel> educationList = JsonReader.LoadData<EducationModel>(path);
             foreach (var education in educationList)
             {
+                homePageSteps.ClickOnEducationTab();
                 educationComponent.AddSameDegreeSameYear(education);
                 LogScreenshot("AddSameDegreeDifferentYearEducation");
             }
@@ -172,6 +167,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
         [When(@"I click on Update button without making changes")]
         public void WhenIClickOnUpdateButtonWithoutMakingChanges()
         {
+            homePageSteps.ClickOnEducationTab();
             educationComponent.UpdateEducationNoChange();
             LogScreenshot("UpdateEducationWithNoChange");
         }

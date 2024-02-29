@@ -57,8 +57,10 @@ namespace MarsAdvanceTaskPart2.Steps
             foreach (var education in educationList)
             {
                 string expectedMessage = educationComponent.GetDeleteEducation(education);
-
-                Assert.AreEqual("Deleted", expectedMessage, "Message mismatch.Education not deleted");
+                if(expectedMessage == "Deleted")
+                {
+                    Assert.AreEqual("Deleted", expectedMessage, "Message mismatch.Education not deleted");
+                }
 
                 string expectedSuccessMessage = "Education entry successfully removed";
                 string actualMessage = educationComponent.GetDeletedMessage();

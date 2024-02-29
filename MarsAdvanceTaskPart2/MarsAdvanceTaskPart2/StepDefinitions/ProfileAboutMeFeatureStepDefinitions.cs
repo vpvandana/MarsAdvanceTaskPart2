@@ -24,11 +24,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
            
         }
 
-        [Given(@"I click on username dropdown icon")]
-        public void GivenIClickOnUsernameDropdownIcon()
-        {
-            homePageSteps.ClickOnProfileIcon();
-        }
+        
 
         [When(@"I add firstname and lsatname in aboutme section from file ""([^""]*)""")]
         public void WhenIAddFirstnameAndLsatnameInAboutmeSectionFromFile(string path)
@@ -36,6 +32,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ProfileAboutMeModel> profileAboutMeList = JsonReader.LoadData<ProfileAboutMeModel>(path);
             foreach(var profile in profileAboutMeList )
             {
+                homePageSteps.ClickOnProfileIcon();
                 profileAboutMeComponent.AddandUpdateUserName(profile);
                 LogScreenshot("AddandUpdateUsername");
             }
@@ -52,11 +49,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             }
                 
         }
-        [Given(@"I click on availability edit icon")]
-        public void GivenIClickOnAvailabilityEditIcon()
-        {
-            homePageSteps.ClickOnAvailabilityEditIcon();
-        }
+       
 
 
         [When(@"I choose availability from dropdown using file located at ""([^""]*)""")]
@@ -65,6 +58,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ProfileAboutMeModel> profileAboutMeList = JsonReader.LoadData<ProfileAboutMeModel>(path);
             foreach (var profile in profileAboutMeList)
             {
+                homePageSteps.ClickOnAvailabilityEditIcon();
                 profileAboutMeComponent.AddandUpdateAvailabilityDetails(profile);
                 LogScreenshot("AddandUpdateAvailability");
             }
@@ -80,11 +74,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             }
                 
         }
-        [Given(@"I click on hours edit icon")]
-        public void GivenIClickOnHoursEditIcon()
-        {
-            homePageSteps.ClickOnHoursEditIcon();
-        }
+        
 
 
         [When(@"I choose the hours that I am available from file ""([^""]*)""")]
@@ -93,6 +83,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ProfileAboutMeModel> profileAboutMeList = JsonReader.LoadData<ProfileAboutMeModel>(path);
             foreach (var profile in profileAboutMeList)
             {
+                homePageSteps.ClickOnHoursEditIcon();
                 profileAboutMeComponent.AddandUpdateAvailabilityHourDetails(profile);
                 LogScreenshot("AddandUpdateHoursAvailable");
             }
@@ -109,11 +100,6 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             }
         }
 
-        [Given(@"I click on earn target edit icon")]
-        public void GivenIClickOnEarnTargetEditIcon()
-        {
-            homePageSteps.ClickOnEarnTargetEditIcon();
-        }
 
         [When(@"I choose the target amount from file ""([^""]*)""")]
         public void WhenIChooseTheTargetAmountFromFile(string path)
@@ -121,6 +107,7 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ProfileAboutMeModel> profileAboutMeList = JsonReader.LoadData<ProfileAboutMeModel>(path);
             foreach (var profile in profileAboutMeList)
             {
+                homePageSteps.ClickOnEarnTargetEditIcon();
                 profileAboutMeComponent.AddandUpdateAvailabilityTargetDetails(profile);
                 LogScreenshot("AddandUpdateEarnTarget");
             }

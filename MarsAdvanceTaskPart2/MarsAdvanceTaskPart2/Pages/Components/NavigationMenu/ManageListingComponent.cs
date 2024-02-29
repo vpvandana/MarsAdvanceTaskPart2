@@ -271,9 +271,6 @@ namespace MarsAdvanceTaskPart2.Pages.Components.NavigationMenu
                     RenderDeleteIconComponent();
                     //Thread.Sleep(1000);
                     deleteIcon.Click();
-                    
-                   // Wait.WaitToBeVisible(driver, "XPath", "/html/body/div[2]/div", 9);
-                    // IAlert alert = driver.SwitchTo().Alert();
                     RenderAlertTextComponent();
                     if (alertText.Text == skill.Title)
                     {
