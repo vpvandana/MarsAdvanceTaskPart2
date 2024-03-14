@@ -1,6 +1,9 @@
 ﻿using MarsAdvanceTaskPart2.Model;
 using MarsAdvanceTaskPart2.Utilities;
+using MarsAdvanceTaskPart2.Model;
+using MarsAdvanceTaskPart2.Utilities;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +36,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
         private IWebElement availabilityCloseIcon;
         private IWebElement hoursCloseIcon;
         private IWebElement earnTargetCloseIcon;
+        private IWebElement hoursEditIcon;
 
         public void RenderComponents()
         {
@@ -64,6 +68,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
                 Console.WriteLine(ex);
             }
         }
+
         public void RenderAddTestComponent()
         {
             addedUserName = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]"));
@@ -92,12 +97,17 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
         }
 
         public void RenderHourComponent()
-        {
-            hoursDropdown = driver.FindElement(By.Name("availabiltyHour"));
-            hoursCloseIcon = driver.FindElement(By.XPath("//*[@name='availabiltyHour']//following-sibling::i"));
+        { 
+            hoursDropdown = driver.FindElement(By.XPath("//select[@name='availabiltyHour']"));
+            //hoursCloseIcon = driver.FindElement(By.XPath("//*[@name='availabiltyHour']//following-sibling::i"));
 
         }
+        public void RenderAvailabilityHoursComponent()
+        {
 
+            hoursEditIcon = driver.FindElement(By.XPath("//*[text()='Hours']//parent::span//following-sibling::div//child::i"));
+
+        }
         public void RenderHourTestComponent()
         {
 
@@ -105,7 +115,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
         }
         public void RenderTargetComponent()
         {
-            earnTargetDropdown = driver.FindElement(By.Name("availabiltyTarget"));
+            earnTargetDropdown = driver.FindElement(By.XPath("//select[@name='availabiltyTarget']"));
             hoursCloseIcon = driver.FindElement(By.XPath("//*[@name='availabiltyTarget']//following-sibling::i"));
 
         }
@@ -121,6 +131,8 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
             closeMessageIcon = driver.FindElement(By.XPath("//a[@class='ns-close']"));
 
         }
+
+
         public void AddandUpdateUserName(ProfileAboutMeModel profileAboutMe)
         {
 
@@ -150,6 +162,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
 
             return addedUserName.Text;
         }
+
         public void AddandUpdateAvailabilityDetails(ProfileAboutMeModel profileAboutMe)
         {
 
@@ -183,9 +196,14 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
 
         public void AddandUpdateAvailabilityHourDetails(ProfileAboutMeModel profileAboutMe)
         {
+            RenderAvailabilityHoursComponent();
+            hoursEditIcon.Click();
+            Wait.WaitToBeClickable(driver, "XPath", "//*[text()='Hours']//parent::span//following-sibling::div//child::i", 20);
             RenderHourComponent();
+            
             hoursDropdown.SendKeys(profileAboutMe.Hours);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
         }
         public string GetAddedHours()

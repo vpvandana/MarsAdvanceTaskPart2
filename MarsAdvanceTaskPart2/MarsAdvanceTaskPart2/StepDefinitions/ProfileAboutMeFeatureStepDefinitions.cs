@@ -74,7 +74,11 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             }
                 
         }
-        
+        [Given(@"I click on hours edit icon")]
+        public void GivenIClickOnHoursEditIcon()
+        {
+           homePageSteps.ClickOnHoursEditIcon();
+        }
 
 
         [When(@"I choose the hours that I am available from file ""([^""]*)""")]
@@ -83,9 +87,9 @@ namespace MarsAdvanceTaskPart2.StepDefinitions
             List<ProfileAboutMeModel> profileAboutMeList = JsonReader.LoadData<ProfileAboutMeModel>(path);
             foreach (var profile in profileAboutMeList)
             {
-                homePageSteps.ClickOnHoursEditIcon();
+               
                 profileAboutMeComponent.AddandUpdateAvailabilityHourDetails(profile);
-                LogScreenshot("AddandUpdateHoursAvailable");
+               // LogScreenshot("AddandUpdateHoursAvailable");
             }
         }
 

@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="AssertHelpers\" />
     <Folder Include="Features\" />
+    <Folder Include="JMeter Tests\" />
     <Folder Include="ScreenshotReport\" />
   </ItemGroup>
 

@@ -38,8 +38,6 @@ namespace MarsAdvanceTaskPart2.Steps
         public void UpdateAvailabilityAssertions(ProfileAboutMeModel profile)
         {
            
-
-
             string actualAddedAvailability = profileAboutMeComponent.GetAddedAvailability();
             if (actualAddedAvailability == profile.Availability)
             {

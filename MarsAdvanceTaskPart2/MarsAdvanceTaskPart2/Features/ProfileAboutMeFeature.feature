@@ -14,6 +14,7 @@ Scenario: Update availability
 
 Scenario: Update hours available 
 	Given Login to Mars and user is on profile page of mars
+	And I click on hours edit icon
 	When I choose the hours that I am available from file "C:\internship notes\MarsAdvanceTaskPart2\MarsAdvanceTaskPart2\MarsAdvanceTaskPart2\MarsAdvanceTaskPart2\TestData\AvailabilityHoursTestData.json"
 	Then Hours should be updated successfully
 

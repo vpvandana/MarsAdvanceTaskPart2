@@ -24,7 +24,6 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
                 userNameDropdownIcon = driver.FindElement(By.XPath("//div[@class='title']//i[@class='dropdown icon']"));
                 descriptionEditIcon = driver.FindElement(By.XPath("//h3[@class='ui dividing header']//i[@class='outline write icon']"));
                 availabilityEditIcon = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/i"));
-                hoursEditIcon = driver.FindElement(By.XPath("//i[@class='large clock outline check icon']//parent::span//following-sibling::div//span//i"));
                 earnTargetEditIcon = driver.FindElement(By.XPath("//i[@class='large dollar icon']//parent::span//following-sibling::div//span//i"));
                 descriptionEditIcon = driver.FindElement(By.XPath("//h3[@class='ui dividing header']//i[@class='outline write icon']"));
             }
@@ -35,7 +34,13 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
                 Console.WriteLine(ex);
             }
         }
+         
+        public void RenderAvailabilityHoursComponent()
+        {
 
+            hoursEditIcon = driver.FindElement(By.XPath("//*[text()='Hours']//parent::span//following-sibling::div//child::i"));
+            
+        }
         public void RenderEducationTabComponent()
         {
             educationTab = driver.FindElement(By.XPath("//a[@data-tab='third']"));
@@ -52,12 +57,10 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
         {
             RenderComponents();
             userNameDropdownIcon.Click();
-            Thread.Sleep(2000);
         }
 
         public void ClickAvailabilityEditIcon()
-        {
-            
+        {   
             RenderComponents();
             availabilityEditIcon.Click();
             
@@ -66,7 +69,9 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
         public void ClickHoursEditIcon()
         {
             Wait.WaitToBeClickable(driver, "XPath", "//i[@class='large clock outline check icon']//parent::span//following-sibling::div//span//i", 7);
-            RenderComponents();
+            Thread.Sleep(2000);
+            RenderAvailabilityHoursComponent();
+          
             hoursEditIcon.Click();
            
         }
@@ -74,6 +79,7 @@ namespace MarsAdvanceTaskPart2.Pages.Components.ProfileOverview
         public void ClickEarnTargetEditIcon()
         {
             RenderComponents();
+            Thread.Sleep(2000);
             earnTargetEditIcon.Click();
             
         }
